@@ -38,7 +38,6 @@ public class GameShabazzJabari extends GameActivity {
     {
         //initialize number of lives
         numLives = 5;
-        //create a scanner object for user input
 
 
         //create a player object (optional)
