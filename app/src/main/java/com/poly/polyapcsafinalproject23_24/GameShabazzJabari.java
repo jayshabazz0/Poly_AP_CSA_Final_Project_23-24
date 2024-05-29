@@ -1,5 +1,6 @@
 package com.poly.polyapcsafinalproject23_24;
 
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,12 +15,12 @@ public class GameShabazzJabari extends GameActivity {
     private TextView tvTitle, tvSubtitle, tvStoryText;
 
     private ImageView ivStory;
-    private Button btn1, btn2, btn3;
+    private Button btn1, btn2, btn3, btn4;
     private boolean isWon;
     private int numLives;
 
     protected void run() {
-        setContentView(R.layout.activity_game_3_button);
+        setContentView(R.layout.activity_game_4_button);
 
         tvTitle = findViewById(R.id.tv_title_txt);
         tvSubtitle = findViewById(R.id.tv_subtitle);
@@ -28,9 +29,18 @@ public class GameShabazzJabari extends GameActivity {
         btn1 = findViewById(R.id.btn_1);
         btn2 = findViewById(R.id.btn_2);
         btn3 = findViewById(R.id.btn_3);
+        btn4 = findViewById(R.id.btn_4);
 
         tvTitle.setText("ZOMBIE APOCALYPSE");
         tvSubtitle.setText("High school edition");
+    }
+
+    private void setAllBtnsVisible()
+    {
+        btn1.setVisibility(View.VISIBLE);
+        btn2.setVisibility(View.VISIBLE);
+        btn3.setVisibility(View.VISIBLE);
+        btn4.setVisibility(View.VISIBLE);
     }
 
 
@@ -46,35 +56,60 @@ public class GameShabazzJabari extends GameActivity {
         //display project title and description
 
         System.out.println("ZOMBIE APOCALYPSE!");
-        System.out.println("A zombie apocalypse breaks out and you have to decide on what path you want to take for your own survival.");
+
+        tvTitle.setText("ZOMBIE APOCALYPSE!");
+        tvSubtitle.setText("by Jabari Shabazz");
+
+        tvStoryText.setText("A zombie apocalypse breaks out and you have to decide on what path you want to take for your own survival.");
+
+        setAllBtnsVisible();
+        btn1.setText("Continue");
+        btn2.setVisibility(View.INVISIBLE);
+        btn3.setVisibility(View.INVISIBLE);
+        btn4.setVisibility(View.INVISIBLE);
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                start();
+            }
+        });
 
 
-        start();
     }
 
     private void start()
     {
+        tvStoryText.setText("A zombie apocalypse breaks out and you have to try your best to survive.\nWhat path do you want to take?");
 
-        System.out.println("ZOMBIE APOCALYPSE");
-
-        System.out.println("\nA zombie apocalypse breaks out and you have to try your best to survive.");
-
-        System.out.println("\nWhat path do you want to take?");
         System.out.println("1. Go search for your lost family\n2. you try to join a new group named the saviors\n3. You encounter a group named alexandria");
 
+        setAllBtnsVisible();
+        btn1.setText("Go search for your lost family");
+        btn2.setText("you try to join a new group named the saviors");
+        btn3.setText("You encounter a group named alexandria");
+        btn4.setVisibility(View.INVISIBLE);
 
-        if (choice == 1)
-        {
-            searchFamily();
-        }
-        else if (choice == 2)
-        {
-            theSaviors();
-        }
-        else if (choice == 3)
-        {
-            findAlexandria();
-        }
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                searchFamily();
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                theSaviors();
+            }
+        });
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                findAlexandria();
+            }
+        });
 
     }
 
@@ -82,21 +117,58 @@ public class GameShabazzJabari extends GameActivity {
     private void searchFamily()
     {
 
-        System.out.println("\nYou find a path which contains 2 lanes");
+        tvStoryText.setText("You find a path which contains 2 lanes\nWhich lane will you take?");
 
-        System.out.println("Which lane will you take?");
-        System.out.println("1. Go left\n2. Go right");
+        System.out.println("1. Go search for your lost family\n2. you try to join a new group named the saviors\n3. You encounter a group named alexandria");
 
+        setAllBtnsVisible();
+        btn1.setText("Go left");
+        btn2.setText("Go right");
+        btn3.setVisibility(View.INVISIBLE);
+        btn4.setVisibility(View.INVISIBLE);
 
-        if (choice == 1)
-        {
-            goLeft();
-        }
-        else if (choice == 2)
-        {
-            goRight();
-        }
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goLeft();
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goRight();
+            }
+        });
     }
+
+
+    private void searchFamily()
+    {
+
+        tvStoryText.setText("You take left and run into a group of zombies\nWhat of the following do you choose?");
+
+        System.out.println("1. Accept your fate\n2. fight off zombies with your handgun);
+
+        setAllBtnsVisible();
+        btn1.setText("acceptFate");
+        btn2.setText("fightHerd");
+        btn3.setVisibility(View.INVISIBLE);
+        btn4.setVisibility(View.INVISIBLE);
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                acceptFate();
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fightHerd();
+            }
+        });
     private void goLeft()
     {
 
